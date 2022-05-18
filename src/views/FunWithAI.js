@@ -2,8 +2,8 @@ import "./FunWithAI.css";
 import Select from 'react-select';
 import TwoColsGrid from "../components/TwoColsGrid";
 import { LocalStorage } from '../services/LocalStorage.js'
-//import { checkLocal } from '../utils/checkLocal.js'
 import React, { useState, useEffect } from 'react'
+
 
 function FunWithAI() {
 
@@ -147,7 +147,8 @@ function FunWithAI() {
       {displayNotice ?
         <div id="credits">
           <p className="notice">
-            Created by Alex Zhang. Powered by <cite><a href="https://openai.com/" target="_blank">Open AI</a></cite>.
+            Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. 
+            Powered by <cite><a href="https://openai.com/" target="_blank">Open AI</a></cite>.
           </p>
         </div>
         : null}

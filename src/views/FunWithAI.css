@@ -1,65 +1,88 @@
 /*! External CSS for Fun With AI project | Created by Alex Zhang */
 
 body {
-    background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
-    font-family: Arial;
-  }
-  
-  /* Center all elements in main-content*/
-  #main-content {
-    position: relative;
-    margin: auto;
-    width: 50%;
-    padding: 30px;
-    min-width: 400px;
-    max-width: 700px;
-  }
-  
-  #credits {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 30px;
-    z-index: -1;
-  }
-  
-  /* Create paddings at the bottom of the form
+  background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
+  font-family: Arial;
+}
+
+/* Center all elements in main-content*/
+#main-content {
+  position: relative;
+  margin: auto;
+  width: 50%;
+  padding: 30px;
+  min-width: 400px;
+  max-width: 700px;
+}
+
+#credits {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  z-index: -1;
+}
+
+/* Create paddings at the bottom of the form
   to fill the space left by absolute positioned button */
-  #text-form {
-    padding-bottom: 80px;
-  }
-  
-  #select_inline {
-    display: inline-block;
-    margin: 4px 2px;
-  }
- 
- 
-  
-  /* Custom button, absolute positioned to the right border of
+#text-form {
+  padding-bottom: 80px;
+}
+
+#select_inline {
+  display: inline-block;
+  margin: 4px 2px;
+}
+
+/* Custom button, absolute positioned to the right border of
    main_content */
-  .button {
-    position: absolute;
-    background-color: DodgerBlue;
-    border: none;
-    color: white;
-    padding: 12px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    right: 30px;
-  }
-  
-  /* Dynamically sized textarea */
-  textarea {
-    display: block;
-    height: auto;
-    width: 100%;
-    resize: none;
-  }
-  
-  
-  
+.button {
+  position: absolute;
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  right: 30px;
+}
+
+/* Dynamically sized textarea */
+textarea {
+  display: block;
+  height: auto;
+  width: 99%;
+  resize: none;
+}
+
+/* Animated Title */
+/* Adapted from https://css-tricks.com/snippets/css/typewriter-effect */
+h1 {
+  color: black;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.10em solid orange; /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  letter-spacing: 0.10em; /* Adjust as needed */
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end 10;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
