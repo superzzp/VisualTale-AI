@@ -1,0 +1,12 @@
+.response {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  margin: 20px 0px;
+  padding: 20px;
+  color: white;
+  background-color: #234099;
+}
+
+.col1 {
+  font-weight: bold;
+}
