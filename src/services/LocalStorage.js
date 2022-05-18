@@ -1,4 +1,4 @@
-// Save a prompt local storage
+// Save a prompt local storage.
 function saveResultToLocalStorage(currID, inputText, responseText) {
     if (typeof (Storage) !== "undefined") {
         // If browser supports local storage
