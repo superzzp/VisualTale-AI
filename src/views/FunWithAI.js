@@ -147,10 +147,8 @@ function FunWithAI() {
       </div>
       {displayNotice ?
         <div id="credits">
-          <p>
-            Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. 
-            Powered by <cite><a href="https://openai.com/" target="_blank">Open AI</a></cite>.
-          </p>
+          <span>Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. </span>
+          <span>Powered by <cite><a href="https://openai.com/" target="_blank">Open AI</a></cite>.</span> 
         </div>
         : null}
     </div>
