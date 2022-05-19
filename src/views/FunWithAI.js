@@ -1,8 +1,9 @@
 import "./FunWithAI.css";
 import Select from 'react-select';
 import TwoColsGrid from "../components/TwoColsGrid";
-import { LocalStorage } from '../services/LocalStorage.js'
-import React, { useState, useEffect } from 'react'
+import TextAnimation from "../animations/AnimatedText";
+import { LocalStorage } from '../services/LocalStorage.js';
+import React, { useState, useEffect } from 'react';
 
 
 function FunWithAI() {
@@ -90,7 +91,7 @@ function FunWithAI() {
       body: JSON.stringify(
         {
           "prompt": inputText,
-          "max_tokens": 64
+          "max_tokens": 128
         })
     })
       .then((response) => {
@@ -120,8 +121,8 @@ function FunWithAI() {
       <div id="main-content">
         <h1>Fun with AI</h1>
         <form onSubmit={onTextFormSubmit}>
-          <label><strong>Enter prompt:</strong></label><br />
-          <textarea rows="10" id="input_text" placeholder="Write a tagline for an ice cream shop..."
+          <label id="form-label"><strong>Enter prompt:</strong></label><br />
+          <textarea rows="10" id="input_text"
             onChange={(e) => setInputText(e.target.value)}></textarea>
           <div id="select_inline">
             <Select placeholder="Data model (Optional)" options={dataModelOptions} styles={customStyles}
@@ -130,7 +131,7 @@ function FunWithAI() {
           <input disabled={!btnActive} id="submit-button" className="button" type="submit" value="Submit" />
         </form>
         {displayNotice ?
-          <p className="notice">No prompt entered yet. Enter a prompt to start having fun with AI text generation...</p>
+          <TextAnimation></TextAnimation>
           : null}
         {displayResponses ?
           <div id="responses">
@@ -146,7 +147,7 @@ function FunWithAI() {
       </div>
       {displayNotice ?
         <div id="credits">
-          <p className="notice">
+          <p>
             Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. 
             Powered by <cite><a href="https://openai.com/" target="_blank">Open AI</a></cite>.
           </p>
