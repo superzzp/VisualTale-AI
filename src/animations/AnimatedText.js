@@ -21,12 +21,10 @@ export default function TextAnimation() {
     const interval = setInterval(() => {
       setCount((prevCount) => {
         if (prevCount == prompts.length - 1) {
-          console.log(0);
           setItem(prompts[0]);
           return 0;
         } else {
           const currCount = prevCount + 1;
-          console.log(currCount);
           setItem(prompts[currCount]);
           return currCount;
         }

@@ -65,7 +65,6 @@ function FunWithAI() {
   function addResultToUI(currID, inputText, responseText) {
     setDisplayResponses(true);
     setDisplayNotice(false);
-    console.log('resultText AAA:', responseText);
     setResultsList(resultsList.concat([{ id: currID, prompt: inputText, response: responseText }]));
   }
 
