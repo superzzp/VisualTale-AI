@@ -79,17 +79,21 @@ function FunWithAI() {
   // Function for submitting input text to Open AI text generation service
   function onTextFormSubmit(event) {
     setBtnActive(false);
+    
     // Proxy server that handle api calls to OpenAI, to protect API credentials
     // Check https://github.com/superzzp/OpenAI-Text-Generation-Service for server side code repo
     const url = "https://openai-text-generation.herokuapp.com/openai";
     fetch(url, {
       method: "POST",
       mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(
         {
           "prompt": inputText,
           "max_tokens": 128,
-          "model": selectedDataModel
+          "model":selectedDataModel
         })
     })
       .then((response) => {
