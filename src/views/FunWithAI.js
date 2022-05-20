@@ -79,26 +79,24 @@ function FunWithAI() {
   // Function for submitting input text to Open AI text generation service
   function onTextFormSubmit(event) {
     setBtnActive(false);
-    const url = "https://api.openai.com/v1/engines/" + selectedDataModel + "/completions";
-    
+    // Proxy server that handle api calls to OpenAI, to protect API credentials
+    // Check https://github.com/superzzp/OpenAI-Text-Generation-Service for server side code repo
+    const url = "https://openai-text-generation.herokuapp.com/openai";
     fetch(url, {
       method: "POST",
       mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": process.env.REACT_APP_CREDENTIALS
-      },
       body: JSON.stringify(
         {
           "prompt": inputText,
-          "max_tokens": 128
+          "max_tokens": 128,
+          "model": selectedDataModel
         })
     })
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        const responseText = data.choices[0].text;
+        const responseText = data.text;
         const currID = resultsList.length;
         addResultToUI(currID, inputText, responseText);
         LocalStorage.saveResultToLocalStorage(currID, inputText, responseText);
