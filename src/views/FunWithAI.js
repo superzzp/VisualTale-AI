@@ -1,13 +1,12 @@
-import "./FunWithAI.css";
+import React, { useState, useEffect } from 'react';
+import { LocalStorage } from '../services/LocalStorage.js';
 import Select from 'react-select';
 import TwoColsGrid from "../components/TwoColsGrid";
+import Spinner from '../components/Spinner.js';
 import TextAnimation from "../animations/AnimatedText";
-import { LocalStorage } from '../services/LocalStorage.js';
-import React, { useState, useEffect } from 'react';
-
+import "./FunWithAI.css";
 
 function FunWithAI() {
-
   // Hook
   // run after the component is mounted
   useEffect(() => {
@@ -22,19 +21,19 @@ function FunWithAI() {
   // States
   const [inputText, setInputText] = useState("");
   const [selectedDataModel, setDataModel] = useState('text-curie-001');
-  const [btnActive, setBtnActive] = useState(true);
   const [displayNotice, setDisplayNotice] = useState(true);
   const [displayResponses, setDisplayResponses] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [resultsList, setResultsList] = useState([]);
 
-  // Data & presets
+  // Data & CSS presets
   const dataModelOptions = [
     { value: 'text-curie-001', label: 'Curie (Default)' },
     { value: 'text-davinci-002', label: 'Davinci' },
     { value: 'text-babbage-001', label: 'Babbage' },
     { value: 'text-ada-001', label: 'Ada' },
   ]
-  const customStyles = {
+  const customSelectStyles = {
     option: (provided) => ({
       ...provided,
       padding: 10,
@@ -61,10 +60,9 @@ function FunWithAI() {
       color: 'white',
     }),
   }
+
   // Helper functions
   function addResultToUI(currID, inputText, responseText) {
-    setDisplayResponses(true);
-    setDisplayNotice(false);
     setResultsList(resultsList.concat([{ id: currID, prompt: inputText, response: responseText }]));
   }
 
@@ -77,8 +75,10 @@ function FunWithAI() {
 
   // Function for submitting input text to Open AI text generation service
   function onTextFormSubmit(event) {
-    setBtnActive(false);
-    
+    setLoading(true);
+    setDisplayResponses(true);
+    setDisplayNotice(false);
+
     // Proxy server that handle api calls to OpenAI, to protect API credentials
     // Check https://github.com/superzzp/OpenAI-Text-Generation-Service for server side code repo
     const url = "https://openai-text-generation.herokuapp.com/openai";
@@ -92,7 +92,7 @@ function FunWithAI() {
         {
           "prompt": inputText,
           "max_tokens": 128,
-          "model":selectedDataModel
+          "model": selectedDataModel
         })
     })
       .then((response) => {
@@ -103,11 +103,11 @@ function FunWithAI() {
         const currID = resultsList.length;
         addResultToUI(currID, inputText, responseText);
         LocalStorage.saveResultToLocalStorage(currID, inputText, responseText);
-        setBtnActive(true);
+        setLoading(false);
       })
       .catch(function (error) {
         console.log(error);
-        setBtnActive(true);
+        setLoading(false);
       });
     event.preventDefault();
   }
@@ -126,10 +126,10 @@ function FunWithAI() {
           <textarea rows="10" id="input_text"
             onChange={(e) => setInputText(e.target.value)}></textarea>
           <div id="select_inline">
-            <Select placeholder="Data model (Optional)" options={dataModelOptions} styles={customStyles}
+            <Select placeholder="Data model (Optional)" options={dataModelOptions} styles={customSelectStyles}
               onChange={(e) => setDataModel(e.value)}></Select>
           </div>
-          <input disabled={!btnActive} id="submit-button" className="button" type="submit" value="Submit" />
+          <input disabled={loading} id="submit-button" className="button" type="submit" value="Submit" />
         </form>
         {displayNotice ?
           <TextAnimation></TextAnimation>
@@ -137,6 +137,7 @@ function FunWithAI() {
         {displayResponses ?
           <div id="responses">
             <h2>Responses:</h2>
+            <Spinner color="white" loading={loading} size={50}></Spinner>
             <div className="container" id="results">
               {resultsList.slice(0).reverse().map((item) => {
                 return (<TwoColsGrid key={item.id} prompt={item.prompt} response={item.response}></TwoColsGrid>)
@@ -149,7 +150,7 @@ function FunWithAI() {
       {displayNotice ?
         <div id="credits">
           <span>Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. </span>
-          <span>Powered by <cite><a href="https://openai.com/" target="_blank">Open AI</a></cite>.</span> 
+          <span>Powered by <cite><a href="https://openai.com/" target="_blank">Open AI</a></cite>.</span>
         </div>
         : null}
     </div>
