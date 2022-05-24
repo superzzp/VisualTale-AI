@@ -45,11 +45,6 @@ body {
   bottom: 30px;
 }
 
-#select_inline {
-  display: inline-block;
-  margin: 4px 2px;
-}
-
 /* Custom button, absolute positioned to the right border of
    main_content */
 .button {

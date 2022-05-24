@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { LocalStorage } from '../services/LocalStorage.js';
-import Select from 'react-select';
 import TwoColsGrid from "../components/TwoColsGrid";
+import Selector from '../components/Selector.js';
 import Spinner from '../components/Spinner.js';
 import TextAnimation from "../animations/AnimatedText";
 import "./FunWithAI.css";
@@ -25,41 +25,6 @@ function FunWithAI() {
   const [displayResponses, setDisplayResponses] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultsList, setResultsList] = useState([]);
-
-  // Data & CSS presets
-  const dataModelOptions = [
-    { value: 'text-curie-001', label: 'Curie (Default)' },
-    { value: 'text-davinci-002', label: 'Davinci' },
-    { value: 'text-babbage-001', label: 'Babbage' },
-    { value: 'text-ada-001', label: 'Ada' },
-  ]
-  const customSelectStyles = {
-    option: (provided) => ({
-      ...provided,
-      padding: 10,
-      backgroundColor: 'DodgerBlue',
-      color: 'white',
-      borderRadius: "0px",
-    }),
-    control: (provided) => ({
-      ...provided,
-      width: 230,
-      backgroundColor: 'DodgerBlue',
-      color: 'white',
-      padding: '3px 0px',
-      border: "none",
-      boxShadow: "none",
-      borderRadius: "0px"
-    }),
-    placeholder: (defaultStyles) => ({
-      ...defaultStyles,
-      color: 'white',
-    }),
-    singleValue: (defaultStyles) => ({
-      ...defaultStyles,
-      color: 'white',
-    }),
-  }
 
   // Helper functions
   function addResultToUI(currID, inputText, responseText) {
@@ -117,6 +82,10 @@ function FunWithAI() {
     clearResultsFromUI();
   }
 
+  function updateDataModel(model) {
+    setDataModel(model)
+  }
+
   return (
     <div>
       <div id="main-content">
@@ -125,10 +94,7 @@ function FunWithAI() {
           <label id="form-label"><strong>Enter prompt:</strong></label><br />
           <textarea rows="10" id="input_text"
             onChange={(e) => setInputText(e.target.value)}></textarea>
-          <div id="select_inline">
-            <Select placeholder="Data model (Optional)" options={dataModelOptions} styles={customSelectStyles}
-              onChange={(e) => setDataModel(e.value)}></Select>
-          </div>
+          <Selector updateDataModel={updateDataModel}></Selector>
           <input disabled={loading} id="submit-button" className="button" type="submit" value="Submit" />
         </form>
         {displayNotice ?
