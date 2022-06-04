@@ -9,7 +9,6 @@ function Selector (props) {
           height: 30,
           backgroundColor: 'DodgerBlue',
           color: 'white',
-          borderRadius: "0px",
           fontSize: "14px"
         }),
         control: (provided) => ({
@@ -20,7 +19,7 @@ function Selector (props) {
           color: 'white',
           border: "none",
           boxShadow: "none",
-          borderRadius: "0px",
+          borderRadius: "5px",
           fontSize: "14px"
         }),
         placeholder: (defaultStyles) => ({
@@ -37,7 +36,7 @@ function Selector (props) {
 
     return (
             <MainSelector>
-                <Select placeholder={props.placeholderText} options={props.options} styles={customSelectStyles}
+                <Select placeholder={props.placeholderText} options={props.options} styles={customSelectStyles} defaultValue = {props.default}
                 onChange={(e) => props.onSelectorChange(e.value)}></Select>
             </MainSelector>
     );

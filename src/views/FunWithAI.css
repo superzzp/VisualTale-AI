@@ -1,5 +1,9 @@
 /*! External CSS for Fun With AI project | Created by Alex Zhang */
 
+*, :after, :before {
+  box-sizing: border-box;
+}
+
 html {
   min-height: 100%;
   position:relative;
@@ -40,17 +44,64 @@ body {
 } */
 
 /* Center all elements in main-content*/
-#main-content {
+/* #main-content {
   position: relative;
   width: 99%;
   margin-top: 20px;
   min-width: 400px;
   max-width: 990px;
+} */
+
+.pg-body{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.pg-left {
+  flex:1 1 auto;
+  padding: 24px 0px 24px 16px;
 }
 
-#app-label {
-  font-size: 14px;
+.pg-right {
+  flex: 0 0 auto;
+  width: 240px;
+  position: relative;
 }
+
+.pg-right-content {
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  padding-top: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.parameter-panel {
+  margin: 0px 24px;
+}
+
+.parameter-panel-grid {
+  grid-gap: 16px;
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.control-label {
+  margin-bottom: 8px;
+}
+
+.body-small {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+#main-content form {
+  margin-bottom: 60px;
+}
+
 
 #credits {
   position: fixed;
@@ -61,43 +112,56 @@ body {
 }
 
 #app-header{
-  padding: 16px 0px;
+  padding: 4px 16px;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
 }
 
-#app-header-content{
-  position: relative;
-  max-width: 990px;
-
-}
-
-#app-header-settings {
-  position: absolute;
-  right: 10px;
+#pg-preset-select-container {
   display: inline-block;
-  margin: -14px 0px;
 }
 
-#app-header-settings button {
+#app-header button {
   background-color: DodgerBlue; /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 10px 11px 11px 11px; /* Some padding */
   font-size: 14px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
-  margin-left: 5px;
+  border-radius: 5px;
 }
 
-#app-header-settings button svg{
+#app-header button:hover {
+  background-color: royalblue
+}
+
+#app-header button svg{
   position: relative;
   top: 2px;
 }
 
+#pg-title {
+  margin: 0px;
+}
+/* 
+10a37f
+1a7f64 */
+#submit-button{
+  background-color:#B4E197;
+  /* left: 0px;
+  right: auto; */
+}
 
+#submit-button:hover{
+  background-color: #83BD75;
+}
 
 /* Custom button, absolute positioned to the right border of
    main_content */
 .button {
-  position: absolute;
+  /* position: absolute; */
   background-color: DodgerBlue;
   border: none;
   color: white;
@@ -108,7 +172,12 @@ body {
   font-size: 14px;
   margin: 4px 2px;
   cursor: pointer;
-  right: 10px;
+  border-radius: 5px;
+  /* right: 10px; */
+}
+
+.button:hover {
+  background-color: royalblue
 }
 
 .bottom-grey-bd {
