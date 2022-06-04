@@ -1,19 +1,33 @@
 /*! External CSS for Fun With AI project | Created by Alex Zhang */
 
-/* body {
-  background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
-  font-family: Arial;
-} */
+html {
+  min-height: 100%;
+  position:relative;
+}
+
+/* -160deg, #0093E9 0%, #80D0C7 100% */
 
 body {
+  /* background: linear-gradient(to right, #74ebd5 0%, #ACB6E5 100%); */
+  /* digital water */
+  /* Blue Skies*/
+  background: #56CCF2;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: Arial;
+  color: white;
+  height: 100%;
+}
+
+/* body {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
   color:white;
-}
+} */
 
-@keyframes gradient {
+/* @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -23,27 +37,62 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
-}
+} */
 
 /* Center all elements in main-content*/
 #main-content {
   position: relative;
-  margin: auto;
-  width: 50%;
-  padding: 30px;
+  width: 99%;
+  margin-top: 20px;
   min-width: 400px;
-  max-width: 700px;
-  
+  max-width: 990px;
 }
-#form-label {
-  font-size: 24px;
+
+#app-label {
+  font-size: 14px;
 }
+
 #credits {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 30px;
+  text-align: center;
 }
+
+#app-header{
+  padding: 16px 0px;
+}
+
+#app-header-content{
+  position: relative;
+  max-width: 990px;
+
+}
+
+#app-header-settings {
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+  margin: -14px 0px;
+}
+
+#app-header-settings button {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 10px 11px 11px 11px; /* Some padding */
+  font-size: 14px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  margin-left: 5px;
+}
+
+#app-header-settings button svg{
+  position: relative;
+  top: 2px;
+}
+
+
 
 /* Custom button, absolute positioned to the right border of
    main_content */
@@ -56,10 +105,18 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 2px;
   cursor: pointer;
-  right: 30px;
+  right: 10px;
+}
+
+.bottom-grey-bd {
+  border-bottom: 1px solid #CDCDCD;
+}
+
+.top-grey-bd {
+  border-top: 1px solid #CDCDCD;
 }
 
 /* Dynamically sized textarea */
@@ -68,7 +125,7 @@ textarea {
   height: auto;
   width: 99%;
   resize: none;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* Animated Title */
@@ -78,19 +135,25 @@ h1 {
   border-right: 0.10em solid transparent; /* The typewriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   letter-spacing: 0.10em; /* Adjust as needed */
-  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end 10;
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end 8;
   margin-top: 0.67em;
   margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
+  /* Add gradient to font */
+  /* background: linear-gradient(to right, #616161, #9bc5c3);  */
 
-  background: linear-gradient(to right, #7927b2, #fb3182); /* Add gradient to font */
+  background: #abbaab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* cloud */
   background-clip: text;
   -webkit-text-fill-color: transparent;
   max-width: 100%;
-  text-transform: uppercase;
-  line-height: .77;
+  /* text-transform: uppercase; */
+  font-style: italic;
+  /* line-height: .77; */
   font-weight: bold;
+  font-size: 18px;
 }
 
 /* The typing effect */
@@ -102,5 +165,5 @@ h1 {
 /* The typewriter cursor effect */
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: DodgerBlue }
+  50% { border-color: #abbaab }
 }

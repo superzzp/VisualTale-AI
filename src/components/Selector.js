@@ -2,44 +2,43 @@ import styled from "styled-components";
 import Select from 'react-select';
 
 function Selector (props) {
-    const dataModelOptions = [
-        { value: 'text-curie-001', label: 'Curie (Default)' },
-        { value: 'text-davinci-002', label: 'Davinci' },
-        { value: 'text-babbage-001', label: 'Babbage' },
-        { value: 'text-ada-001', label: 'Ada' },
-    ]
+    
     const customSelectStyles = {
         option: (provided) => ({
           ...provided,
-          padding: 10,
+          height: 30,
           backgroundColor: 'DodgerBlue',
           color: 'white',
           borderRadius: "0px",
+          fontSize: "14px"
         }),
         control: (provided) => ({
           ...provided,
-          width: 230,
+          width: 200,
+          height: 30,
           backgroundColor: 'DodgerBlue',
           color: 'white',
-          padding: '3px 0px',
           border: "none",
           boxShadow: "none",
-          borderRadius: "0px"
+          borderRadius: "0px",
+          fontSize: "14px"
         }),
         placeholder: (defaultStyles) => ({
           ...defaultStyles,
           color: 'white',
+          fontSize: "14px"
         }),
         singleValue: (defaultStyles) => ({
           ...defaultStyles,
           color: 'white',
+          fontSize: "14px"
         }),
     }
 
     return (
             <MainSelector>
-                <Select placeholder="Data model (Optional)" options={dataModelOptions} styles={customSelectStyles}
-                onChange={(e) => props.updateDataModel(e.value)}></Select>
+                <Select placeholder={props.placeholderText} options={props.options} styles={customSelectStyles}
+                onChange={(e) => props.onSelectorChange(e.value)}></Select>
             </MainSelector>
     );
 }
@@ -47,13 +46,6 @@ function Selector (props) {
 const MainSelector = styled.div`
     display: inline-block;
     margin: 4px 2px;
-`
-const InfoPanel = styled.div`
-    margin: 4px 2px;
-    width: 100px;
-    height:100px;
-    backgroundColor: white;
-    position: absolute;
 `
 
 export default Selector;

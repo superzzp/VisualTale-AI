@@ -34,7 +34,7 @@ export default function TextAnimation() {
   }, [])
 
   return <div>
-    <h2>Ask me anything:</h2>
+    <Title>Ask me anything:</Title>
     <Wrapper>{item}</Wrapper>
   </div>
 }
@@ -51,5 +51,8 @@ const Wrapper = styled.span`
   animation-duration: 6s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
-  font-size: 24px;
+  font-size: 14px;
+`
+const Title = styled.div`
+  font-size: 14px;
 `
