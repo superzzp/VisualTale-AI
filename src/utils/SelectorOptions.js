@@ -1,6 +1,6 @@
 const inputDataModel = [
-    { value: 'text-curie-001', label: 'Curie (Default)' },
-    { value: 'text-davinci-002', label: 'Davinci' },
+    { value: 'text-davinci-002', label: 'Davinci (Default)' },
+    { value: 'text-curie-001', label: 'Curie' },
     { value: 'text-babbage-001', label: 'Babbage' },
     { value: 'text-ada-001', label: 'Ada' },
 ]

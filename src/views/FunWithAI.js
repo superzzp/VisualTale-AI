@@ -21,7 +21,7 @@ function FunWithAI() {
 
   // States
   const [inputText, setInputText] = useState("");
-  const [selectedDataModel, setDataModel] = useState('text-curie-001');
+  const [selectedDataModel, setDataModel] = useState('text-davinci-002');
   const [displayNotice, setDisplayNotice] = useState(true);
   const [displayResponses, setDisplayResponses] = useState(false);
   const [loading, setLoading] = useState(false);
