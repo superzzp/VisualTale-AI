@@ -158,51 +158,50 @@ function FunWithAI() {
                 <div>
                   <div className='control-label-with-indicator'>
                     <span className={["body-small", "cli-left"].join(" ")}>Temperature</span>
-                    <input className={["cli-right", "text-input"].join(" ")} value={selectedTemperature} onChange={(e) => { var val = e.target.value; if (val >= 0 && val <= 1) { setTemperature(val) } }}></input>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedTemperature} onChange={(e) => { var val = Number(e.target.value); if (val >= 0 && val <= 1) { setTemperature(val) } }}></input>
                   </div>
                   <div className='control-slider-container'>
-                    <input className='control-slider' type="range" min="0" max="1" step="0.01" value={selectedTemperature} onChange={(e) => setTemperature(e.target.value)}></input>
+                    <input className='control-slider' type="range" min="0" max="1" step="0.01" value={selectedTemperature} onChange={(e) => setTemperature(Number(e.target.value))}></input>
                   </div>
                 </div>
                 {/* Max length */}
                 <div>
                   <div className='control-label-with-indicator'>
                     <span className={["body-small", "cli-left"].join(" ")} >Maximum length</span>
-                    <input className={["cli-right", "text-input"].join(" ")} value={selectedMaxResTokenLength} onChange={(e) => { var val = e.target.value; if (val >= 1 && val <= 512) { setMaxResTokenLength(val) } }}></input>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedMaxResTokenLength} onChange={(e) => { var val = Number(e.target.value); if (val >= 1 && val <= 512) { setMaxResTokenLength(val) } }}></input>
                   </div>
                   <div className='control-slider-container'>
-                    <input className='control-slider' type="range" min="1" max="512" step="1" value={selectedMaxResTokenLength} onChange={(e) => setMaxResTokenLength(e.target.value)}></input>
+                    <input className='control-slider' type="range" min="1" max="512" step="1" value={selectedMaxResTokenLength} onChange={(e) => setMaxResTokenLength(Number(e.target.value))}></input>
                   </div>
                 </div>
                 {/* Top p */}
                 <div>
                   <div className='control-label-with-indicator'>
                     <span className={["body-small", "cli-left"].join(" ")} >Top P</span>
-                    <input className={["cli-right", "text-input"].join(" ")} value={selectedTopP} onChange={(e) => { var val = e.target.value; if (val >= 0 && val <= 1) { setTopP(val) } }}></input>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedTopP} onChange={(e) => { var val = Number(e.target.value); if (val >= 0 && val <= 1) { setTopP(val) } }}></input>
                   </div>
                   <div className='control-slider-container'>
-                    <input className='control-slider' type="range" min="0" max="1" step="0.01" value={selectedMaxResTokenLength} onChange={(e) => setTopP(e.target.value)}></input>
+                    <input className='control-slider' type="range" min="0" max="1" step="0.01" value={selectedTopP} onChange={(e) => setTopP(Number(e.target.value))}></input>
                   </div>
                 </div>
-
                 {/* Frequency penalty */}
                 <div>
                   <div className='control-label-with-indicator'>
                     <span className={["body-small", "cli-left"].join(" ")} >Frequency penalty</span>
-                    <input className={["cli-right", "text-input"].join(" ")} value={selectedFreqPenalty} onChange={(e) => { var val = e.target.value; if (val >= 0 && val <= 2) { setFreqPenalty(val) } }}></input>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedFreqPenalty} onChange={(e) => { var val = Number(e.target.value); if (val >= 0 && val <= 2) { setFreqPenalty(val) } }}></input>
                   </div>
                   <div className='control-slider-container'>
-                    <input className='control-slider' type="range" min="0" max="2" step="0.01" value={selectedFreqPenalty} onChange={(e) => setFreqPenalty(e.target.value)}></input>
+                    <input className='control-slider' type="range" min="0" max="2" step="0.01" value={selectedFreqPenalty} onChange={(e) => setFreqPenalty(Number(e.target.value))}></input>
                   </div>
                 </div>
                 {/* Presence penalty */}
                 <div>
                   <div className='control-label-with-indicator'>
                     <span className={["body-small", "cli-left"].join(" ")} >Presence penalty</span>
-                    <input className={["cli-right", "text-input"].join(" ")} value={selectedPresPenalty} onChange={(e) => { var val = e.target.value; if (val >= 0 && val <= 2) { setPresPenalty(val) } }}></input>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedPresPenalty} onChange={(e) => { var val = Number(e.target.value); if (val >= 0 && val <= 2) { setPresPenalty(val) } }}></input>
                   </div>
                   <div className='control-slider-container'>
-                    <input className='control-slider' type="range" min="0" max="2" step="0.01" value={selectedPresPenalty} onChange={(e) => setPresPenalty(e.target.value)}></input>
+                    <input className='control-slider' type="range" min="0" max="2" step="0.01" value={selectedPresPenalty} onChange={(e) => setPresPenalty(Number(e.target.value))}></input>
                   </div>
                 </div>
               </div>
