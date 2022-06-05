@@ -23,6 +23,7 @@ function FunWithAI() {
   const [inputText, setInputText] = useState("");
   const [displayNotice, setDisplayNotice] = useState(true);
   const [displayResponses, setDisplayResponses] = useState(false);
+  const [displaySidePanelOverlay, setDisplaySidePanelOverlay] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultsList, setResultsList] = useState([]);
 
@@ -33,6 +34,9 @@ function FunWithAI() {
   const [selectedTopP, setTopP] = useState(1);
   const [selectedFreqPenalty, setFreqPenalty] = useState(0);
   const [selectedPresPenalty, setPresPenalty] = useState(0);
+
+  // Dynamic classNames for components
+  var pgRightFlexClassNames = displaySidePanelOverlay? ["pg-right",  "pg-visible-mobile"].join(" ") : "pg-right";
 
   // Helper functions
   function addResultToUI(currID, inputText, responseText) {
@@ -105,7 +109,7 @@ function FunWithAI() {
     setFreqPenalty(preset.param.freq);
     setPresPenalty(preset.param.pres);
   }
-
+  
   return (
     <div>
       <h1>Silver Tongue</h1>
@@ -117,7 +121,7 @@ function FunWithAI() {
           <Selector placeholderText={"Load a preset ..."} onSelectorChange={updateSelectedPreset} options={promptPresets} width={250}></Selector>
         </div>
         <div>
-          <button className='regular-button'>
+          <button className={["regular-button", "pg-advanced-toggle"].join(" ")}  onClick={()=>setDisplaySidePanelOverlay(true)}>
             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd"></path></svg>
           </button>
         </div>
@@ -144,10 +148,12 @@ function FunWithAI() {
             </div>
             : null}
         </div>
-
-        <div className='pg-right'>
+        
+        <div className = {pgRightFlexClassNames}>
+          <div className='pg-right-panel-mask'></div>
           <div className='pg-right-content'>
             <div className='parameter-panel'>
+              <button class={"pg-right-panel-mobile-close"} onClick={()=>setDisplaySidePanelOverlay(false)}>×</button>
               <div className='parameter-panel-grid'>
                 {/* Engine */}
                 <div>
@@ -212,7 +218,7 @@ function FunWithAI() {
       {displayNotice ?
         <div id="credits">
           <span>Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. </span>
-          <span>Powered by <cite><a href="https://openai.com/" target="_blank">Open AI</a></cite>.</span>
+          <span>Powered by Open AI.</span>
         </div>
         : null}
     </div>
