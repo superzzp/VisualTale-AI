@@ -30,7 +30,10 @@ function FunWithAI() {
   const [selectedDataModel, setDataModel] = useState('text-davinci-002');
   const [selectedTemperature, setTemperature] = useState(0.7);
   const [selectedMaxResTokenLength, setMaxResTokenLength] = useState(256);
- 
+  const [selectedTopP, setTopP] = useState(1);
+  const [selectedFreqPenalty, setFreqPenalty] = useState(0);
+  const [selectedPresPenalty, setPresPenalty] = useState(0);
+
   // Helper functions
   function addResultToUI(currID, inputText, responseText) {
     setResultsList(resultsList.concat([{ id: currID, prompt: inputText, response: responseText }]));
@@ -87,11 +90,16 @@ function FunWithAI() {
   }
 
   function updateDataModel(model) {
-    setDataModel(model)
+    setDataModel(model.text);
   }
 
   function updateSelectedPreset(preset) {
-    setInputText(preset)
+    setInputText(preset.text);
+    setTemperature(preset.param.temp);
+    setMaxResTokenLength(preset.param.maxLen);
+    setTopP(preset.param.topP);
+    setFreqPenalty(preset.param.freq);
+    setPresPenalty(preset.param.pres);
   }
 
   return (
@@ -102,7 +110,7 @@ function FunWithAI() {
           <h4 id="pg-title">Playground</h4>
         </div>
         <div id="pg-preset-select-container">
-            <Selector placeholderText={"Load a preset ..."} onSelectorChange={updateSelectedPreset} options={promptPresets}></Selector>
+          <Selector placeholderText={"Load a preset ..."} onSelectorChange={updateSelectedPreset} options={promptPresets} width={250}></Selector>
         </div>
         <div>
           <button className='regular-button'>
@@ -114,8 +122,7 @@ function FunWithAI() {
         <div className="pg-left">
           <form onSubmit={onTextFormSubmit}>
             <textarea className="text-area" rows="10" value={inputText} onChange={(e) => setInputText(e.target.value)}></textarea>
-            {/* <Selector placeholderText={"Data model (optional)"} onSelectorChange={updateDataModel} options={inputDataModel}></Selector> */}
-            <button disabled={loading} className={["button", "action-button"].join(" ")}  type="submit">Submit</button>
+            <button disabled={loading} className={["button", "action-button"].join(" ")} type="submit">Submit</button>
           </form>
           {/* {displayNotice ?
           <TextAnimation></TextAnimation>
@@ -138,26 +145,60 @@ function FunWithAI() {
           <div className='pg-right-content'>
             <div className='parameter-panel'>
               <div className='parameter-panel-grid'>
+                {/* Engine */}
                 <div>
                   <div className={["body-small", "control-label"].join(" ")}>Engine</div>
-                  <Selector onSelectorChange={updateDataModel} options={inputDataModel} default={inputDataModel[0]}></Selector>
+                  <Selector onSelectorChange={updateDataModel} options={inputDataModel} width={208} default={inputDataModel[0]}></Selector>
                 </div>
+                {/* Temperature */}
                 <div>
                   <div className='control-label-with-indicator'>
                     <span className={["body-small", "cli-left"].join(" ")}>Temperature</span>
-                    <input className={["cli-right", "text-input"].join(" ")} value={selectedTemperature} onChange={(e) => setTemperature(e.target.value)}></input>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedTemperature} onChange={(e) => { var val = e.target.value; if (val >= 0 && val <= 1) { setTemperature(val) } }}></input>
                   </div>
                   <div className='control-slider-container'>
                     <input className='control-slider' type="range" min="0" max="1" step="0.01" value={selectedTemperature} onChange={(e) => setTemperature(e.target.value)}></input>
                   </div>
                 </div>
+                {/* Max length */}
                 <div>
                   <div className='control-label-with-indicator'>
-                    <span className={["body-small", "cli-left"].join(" ")}>Maximum length</span>
-                    <input className={["cli-right", "text-input"].join(" ")}></input>
+                    <span className={["body-small", "cli-left"].join(" ")} >Maximum length</span>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedMaxResTokenLength} onChange={(e) => { var val = e.target.value; if (val >= 1 && val <= 512) { setMaxResTokenLength(val) } }}></input>
                   </div>
                   <div className='control-slider-container'>
-                    <input className='control-slider' type="range" min="1" max="100" id="myRange"></input>
+                    <input className='control-slider' type="range" min="1" max="512" step="1" value={selectedMaxResTokenLength} onChange={(e) => setMaxResTokenLength(e.target.value)}></input>
+                  </div>
+                </div>
+                {/* Top p */}
+                <div>
+                  <div className='control-label-with-indicator'>
+                    <span className={["body-small", "cli-left"].join(" ")} >Top P</span>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedTopP} onChange={(e) => { var val = e.target.value; if (val >= 0 && val <= 1) { setTopP(val) } }}></input>
+                  </div>
+                  <div className='control-slider-container'>
+                    <input className='control-slider' type="range" min="0" max="1" step="0.01" value={selectedMaxResTokenLength} onChange={(e) => setTopP(e.target.value)}></input>
+                  </div>
+                </div>
+
+                {/* Frequency penalty */}
+                <div>
+                  <div className='control-label-with-indicator'>
+                    <span className={["body-small", "cli-left"].join(" ")} >Frequency penalty</span>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedFreqPenalty} onChange={(e) => { var val = e.target.value; if (val >= 0 && val <= 2) { setFreqPenalty(val) } }}></input>
+                  </div>
+                  <div className='control-slider-container'>
+                    <input className='control-slider' type="range" min="0" max="2" step="0.01" value={selectedFreqPenalty} onChange={(e) => setFreqPenalty(e.target.value)}></input>
+                  </div>
+                </div>
+                {/* Presence penalty */}
+                <div>
+                  <div className='control-label-with-indicator'>
+                    <span className={["body-small", "cli-left"].join(" ")} >Presence penalty</span>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedPresPenalty} onChange={(e) => { var val = e.target.value; if (val >= 0 && val <= 2) { setPresPenalty(val) } }}></input>
+                  </div>
+                  <div className='control-slider-container'>
+                    <input className='control-slider' type="range" min="0" max="2" step="0.01" value={selectedPresPenalty} onChange={(e) => setPresPenalty(e.target.value)}></input>
                   </div>
                 </div>
               </div>

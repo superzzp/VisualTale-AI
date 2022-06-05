@@ -65,6 +65,7 @@ body {
 .pg-right {
   flex: 0 0 auto;
   width: 240px;
+  height: 450px;
   position: relative;
 }
 

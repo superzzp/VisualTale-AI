@@ -8,11 +8,14 @@ function Selector (props) {
           height: 30,
           backgroundColor: 'DodgerBlue',
           color: 'white',
-          fontSize: "14px"
+          fontSize: "14px",
+          "&:hover": {
+            backgroundColor: "royalBlue"
+          }
         }),
         control: (provided) => ({
           ...provided,
-          width: 208,
+          width: props.width,
           height: 30,
           backgroundColor: 'DodgerBlue',
           color: 'white',
@@ -20,6 +23,9 @@ function Selector (props) {
           boxShadow: "none",
           borderRadius: "5px",
           fontSize: "14px",
+          "&:hover": {
+            backgroundColor: "royalBlue"
+          }
         }),
         placeholder: (defaultStyles) => ({
           ...defaultStyles,
