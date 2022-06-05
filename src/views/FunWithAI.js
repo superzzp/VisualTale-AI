@@ -63,7 +63,11 @@ function FunWithAI() {
       body: JSON.stringify(
         {
           "prompt": inputText,
-          "max_tokens": 128,
+          "max_tokens": selectedMaxResTokenLength,
+          "temperature": selectedTemperature,
+          "top_p": selectedTopP,
+          "frequency_penalty": selectedFreqPenalty,
+          "presence_penalty": selectedPresPenalty,
           "model": selectedDataModel
         })
     })
