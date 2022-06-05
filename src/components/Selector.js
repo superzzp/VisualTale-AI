@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Select from 'react-select';
 
 function Selector (props) {
-    
     const customSelectStyles = {
         option: (provided) => ({
           ...provided,
@@ -13,14 +12,14 @@ function Selector (props) {
         }),
         control: (provided) => ({
           ...provided,
-          width: 200,
+          width: 208,
           height: 30,
           backgroundColor: 'DodgerBlue',
           color: 'white',
           border: "none",
           boxShadow: "none",
           borderRadius: "5px",
-          fontSize: "14px"
+          fontSize: "14px",
         }),
         placeholder: (defaultStyles) => ({
           ...defaultStyles,
@@ -44,7 +43,6 @@ function Selector (props) {
 
 const MainSelector = styled.div`
     display: inline-block;
-    margin: 4px 2px;
 `
 
 export default Selector;

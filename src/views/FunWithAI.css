@@ -79,7 +79,7 @@ body {
 }
 
 .parameter-panel {
-  margin: 0px 24px;
+  margin: 0px 16px;
 }
 
 .parameter-panel-grid {
@@ -92,16 +92,66 @@ body {
   margin-bottom: 8px;
 }
 
+.control-label-with-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.cli-left {
+  flex: 1 0 auto;
+}
+
+.cli-right {
+  flex: 0 1 auto;
+  width: 46px;
+  padding: 4px 5px 3px;
+  line-height: 15px;
+  text-align: right;
+  font-variant: tabular-nums;
+}
+
+.text-input {
+  background-clip: padding-box;
+  background-color: transparent;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  vertical-align: top;
+}
+
+.text-input:hover {
+  border-color: dodgerblue;
+}
+
+.text-input:focus {
+  border-color: royalblue;
+  outline: none;
+  box-shadow: 0 0 3px #719ECE;
+}
+
 .body-small {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
 }
 
+.control-slider-container{
+  margin-top: 0.5em;
+}
+.control-slider{
+  width: 100%;
+  margin: 0px;
+}
+
+
 #main-content form {
   margin-bottom: 60px;
 }
-
 
 #credits {
   position: fixed;
@@ -112,7 +162,7 @@ body {
 }
 
 #app-header{
-  padding: 4px 16px;
+  padding: 8px 16px;
   display: grid;
   grid-gap: 12px;
   grid-template-columns: 1fr auto auto;
@@ -124,17 +174,12 @@ body {
 }
 
 #app-header button {
-  background-color: DodgerBlue; /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 10px 11px 11px 11px; /* Some padding */
   font-size: 14px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
   border-radius: 5px;
-}
-
-#app-header button:hover {
-  background-color: royalblue
 }
 
 #app-header button svg{
@@ -145,16 +190,12 @@ body {
 #pg-title {
   margin: 0px;
 }
-/* 
-10a37f
-1a7f64 */
-#submit-button{
+
+.action-button {
   background-color:#B4E197;
-  /* left: 0px;
-  right: auto; */
 }
 
-#submit-button:hover{
+.action-button:hover {
   background-color: #83BD75;
 }
 
@@ -162,7 +203,6 @@ body {
    main_content */
 .button {
   /* position: absolute; */
-  background-color: DodgerBlue;
   border: none;
   color: white;
   padding: 12px 32px;
@@ -170,15 +210,19 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  margin: 4px 2px;
+  margin: 4px 0px;
   cursor: pointer;
   border-radius: 5px;
   /* right: 10px; */
 }
+.regular-button {
+  background-color: DodgerBlue;
+}
 
-.button:hover {
+.regular-button:hover {
   background-color: royalblue
 }
+
 
 .bottom-grey-bd {
   border-bottom: 1px solid #CDCDCD;
@@ -189,12 +233,13 @@ body {
 }
 
 /* Dynamically sized textarea */
-textarea {
+.text-area {
   display: block;
   height: auto;
   width: 99%;
   resize: none;
   font-size: 14px;
+  border-radius: 5px;
 }
 
 /* Animated Title */
@@ -207,6 +252,7 @@ h1 {
   animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end 8;
   margin-top: 0.67em;
   margin-bottom: 0.67em;
+  margin-left: 16px;
   /* Add gradient to font */
   /* background: linear-gradient(to right, #616161, #9bc5c3);  */
 

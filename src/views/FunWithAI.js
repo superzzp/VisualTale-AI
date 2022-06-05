@@ -19,14 +19,18 @@ function FunWithAI() {
     setResultsList(results);
   }, [])
 
-  // States
+  // States 
   const [inputText, setInputText] = useState("");
-  const [selectedDataModel, setDataModel] = useState('text-davinci-002');
   const [displayNotice, setDisplayNotice] = useState(true);
   const [displayResponses, setDisplayResponses] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultsList, setResultsList] = useState([]);
 
+  // Hyperparameter states
+  const [selectedDataModel, setDataModel] = useState('text-davinci-002');
+  const [selectedTemperature, setTemperature] = useState(0.7);
+  const [selectedMaxResTokenLength, setMaxResTokenLength] = useState(256);
+ 
   // Helper functions
   function addResultToUI(currID, inputText, responseText) {
     setResultsList(resultsList.concat([{ id: currID, prompt: inputText, response: responseText }]));
@@ -101,7 +105,7 @@ function FunWithAI() {
             <Selector placeholderText={"Load a preset ..."} onSelectorChange={updateSelectedPreset} options={promptPresets}></Selector>
         </div>
         <div>
-          <button>
+          <button className='regular-button'>
             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd"></path></svg>
           </button>
         </div>
@@ -109,9 +113,9 @@ function FunWithAI() {
       <div className='pg-body'>
         <div className="pg-left">
           <form onSubmit={onTextFormSubmit}>
-            <textarea rows="10" value={inputText} onChange={(e) => setInputText(e.target.value)}></textarea>
+            <textarea className="text-area" rows="10" value={inputText} onChange={(e) => setInputText(e.target.value)}></textarea>
             {/* <Selector placeholderText={"Data model (optional)"} onSelectorChange={updateDataModel} options={inputDataModel}></Selector> */}
-            <button disabled={loading} id="submit-button" className="button" type="submit">Submit</button>
+            <button disabled={loading} className={["button", "action-button"].join(" ")}  type="submit">Submit</button>
           </form>
           {/* {displayNotice ?
           <TextAnimation></TextAnimation>
@@ -124,7 +128,7 @@ function FunWithAI() {
                 {resultsList.slice(0).reverse().map((item) => {
                   return (<TwoColsGrid key={item.id} prompt={item.prompt} response={item.response}></TwoColsGrid>)
                 })}
-                <button className="button" onClick={clearResults}>Clear Results</button>
+                <button className={["button", "action-button"].join(" ")} onClick={clearResults}>Clear Results</button>
               </div>
             </div>
             : null}
@@ -135,18 +139,27 @@ function FunWithAI() {
             <div className='parameter-panel'>
               <div className='parameter-panel-grid'>
                 <div>
-                  <div className={["body-small", "control-panel"].join(" ")}>Engine</div>
+                  <div className={["body-small", "control-label"].join(" ")}>Engine</div>
                   <Selector onSelectorChange={updateDataModel} options={inputDataModel} default={inputDataModel[0]}></Selector>
                 </div>
-                {/* <div>
-                  Control 2
+                <div>
+                  <div className='control-label-with-indicator'>
+                    <span className={["body-small", "cli-left"].join(" ")}>Temperature</span>
+                    <input className={["cli-right", "text-input"].join(" ")} value={selectedTemperature} onChange={(e) => setTemperature(e.target.value)}></input>
+                  </div>
+                  <div className='control-slider-container'>
+                    <input className='control-slider' type="range" min="0" max="1" step="0.01" value={selectedTemperature} onChange={(e) => setTemperature(e.target.value)}></input>
+                  </div>
                 </div>
                 <div>
-                  Control 3
+                  <div className='control-label-with-indicator'>
+                    <span className={["body-small", "cli-left"].join(" ")}>Maximum length</span>
+                    <input className={["cli-right", "text-input"].join(" ")}></input>
+                  </div>
+                  <div className='control-slider-container'>
+                    <input className='control-slider' type="range" min="1" max="100" id="myRange"></input>
+                  </div>
                 </div>
-                <div>
-                  Control 4
-                </div> */}
               </div>
             </div>
           </div>

@@ -47,6 +47,7 @@ function clearLocalStorage() {
         console.log('local storage not supported.')
     }
 }
+
 export const LocalStorage = {
     saveResultToLocalStorage,
     loadResultsFromLocalStorage,
