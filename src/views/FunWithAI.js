@@ -118,6 +118,17 @@ function FunWithAI() {
       <div className="pg-root">
         <div className={["pg-welcome", "body-small"].join(" ")}>
           <h3>To begin</h3>
+          <p>
+            Enter an instruction or select a preset, and watch the API respond with a completion that attempts to match the context or pattern you provided.
+          </p>
+
+          <p>
+          You can control which model completes your request by changing the model.
+          </p>
+          <p>
+            Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. 
+            Powered by Open AI's GPT3 models.
+          </p>
         </div>
         <div className="pg-main">
           <div id="pg-header" className={["bottom-grey-bd"].join(" ")}>
@@ -224,12 +235,12 @@ function FunWithAI() {
             </div>
           </div>
         </div>
-        {displayNotice ?
+        {/* {displayNotice ?
           <div id="credits">
             <span>Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. </span>
             <span>Powered by Open AI.</span>
           </div>
-          : null}
+          : null} */}
       </div>
     </div>
   );
