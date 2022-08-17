@@ -23,17 +23,51 @@ body {
   height: 100%;
 }
 
+
+.app-header{
+  padding: 0px 24px;
+}
+
+.app-header h1{
+  margin-left: 0px;
+}
+
+.pg-root {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.pg-welcome{
+  border-right: 1px solid #CDCDCD;
+  flex-shrink: 0;
+  padding: 16px 24px;
+  position: relative;
+  width: 320px;
+}
+
+.pg-welcome h3{
+  margin: 0px;
+}
+
+.pg-main{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
 .pg-body{
   display: flex;
   flex-direction: row;
   align-items: stretch;
 }
+
+
+
 .pg-left {
   flex:1 1 auto;
   padding: 24px 16px;
 }
-
-
 
 .pg-right-content {
   bottom: 0;
@@ -157,7 +191,7 @@ body {
   text-align: center;
 }
 
-#app-header{
+#pg-header{
   padding: 8px 16px;
   display: grid;
   grid-gap: 12px;
@@ -169,7 +203,7 @@ body {
   display: inline-block;
 }
 
-#app-header button {
+#pg-header button {
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 10px 11px 11px 11px; /* Some padding */
@@ -178,7 +212,7 @@ body {
   border-radius: 5px;
 }
 
-#app-header button svg{
+#pg-header button svg{
   position: relative;
   top: 2px;
 }
@@ -245,7 +279,7 @@ h1 {
   border-right: 0.10em solid transparent; /* The typewriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   letter-spacing: 0.10em; /* Adjust as needed */
-  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end 8;
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end 1;
   margin-top: 0.67em;
   margin-bottom: 0.67em;
   margin-left: 16px;
