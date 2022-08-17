@@ -53,6 +53,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
+  min-height: 100vh;
 }
 
 .pg-body{
@@ -60,8 +61,6 @@ body {
   flex-direction: row;
   align-items: stretch;
 }
-
-
 
 .pg-left {
   flex:1 1 auto;
