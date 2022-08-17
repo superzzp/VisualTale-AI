@@ -1,12 +1,14 @@
 /*! External CSS for Fun With AI project | Created by Alex Zhang */
 
-*, :after, :before {
+*,
+:after,
+:before {
   box-sizing: border-box;
 }
 
 html {
   min-height: 100%;
-  position:relative;
+  position: relative;
 }
 
 /* -160deg, #0093E9 0%, #80D0C7 100% */
@@ -15,20 +17,27 @@ body {
   /* background: linear-gradient(to right, #74ebd5 0%, #ACB6E5 100%); */
   /* digital water */
   /* Blue Skies*/
-  background: #56CCF2;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #56ccf2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2f80ed,
+    #56ccf2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2f80ed,
+    #56ccf2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family: Arial;
   color: white;
   height: 100%;
 }
 
-
-.app-header{
+.app-header {
   padding: 0px 24px;
 }
 
-.app-header h1{
+.app-header h1 {
   margin-left: 0px;
 }
 
@@ -37,33 +46,33 @@ body {
   flex-direction: row;
 }
 
-.pg-welcome{
-  border-right: 1px solid #CDCDCD;
+.pg-welcome {
+  border-right: 1px solid #cdcdcd;
   flex-shrink: 0;
   padding: 16px 24px;
   position: relative;
   width: 320px;
 }
 
-.pg-welcome h3{
+.pg-welcome h3 {
   margin: 0px;
 }
 
-.pg-main{
+.pg-main {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
   min-height: 100vh;
 }
 
-.pg-body{
+.pg-body {
   display: flex;
   flex-direction: row;
   align-items: stretch;
 }
 
 .pg-left {
-  flex:1 1 auto;
+  flex: 1 1 auto;
   padding: 24px 16px;
 }
 
@@ -86,7 +95,7 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
   z-index: 1;
 }
 
@@ -104,7 +113,6 @@ body {
   right: 10px;
   top: 5px;
 }
-
 
 .parameter-panel {
   margin: 0px 16px;
@@ -148,7 +156,7 @@ body {
   font-weight: 400;
   line-height: 1.4;
   margin: 0;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   vertical-align: top;
 }
 
@@ -159,7 +167,7 @@ body {
 .text-input:focus {
   border-color: royalblue;
   outline: none;
-  box-shadow: 0 0 3px #719ECE;
+  box-shadow: 0 0 3px #719ece;
 }
 
 .body-small {
@@ -168,14 +176,13 @@ body {
   line-height: 20px;
 }
 
-.control-slider-container{
+.control-slider-container {
   margin-top: 0.5em;
 }
-.control-slider{
+.control-slider {
   width: 100%;
   margin: 0px;
 }
-
 
 #main-content form {
   margin-bottom: 60px;
@@ -189,7 +196,7 @@ body {
   text-align: center;
 }
 
-#pg-header{
+#pg-header {
   padding: 8px 16px;
   display: grid;
   grid-gap: 12px;
@@ -210,7 +217,7 @@ body {
   border-radius: 5px;
 }
 
-#pg-header button svg{
+#pg-header button svg {
   position: relative;
   top: 2px;
 }
@@ -220,11 +227,11 @@ body {
 }
 
 .action-button {
-  background-color:#B4E197;
+  background-color: #b4e197;
 }
 
 .action-button:hover {
-  background-color: #83BD75;
+  background-color: #83bd75;
 }
 
 /* Custom button, absolute positioned to the right border of
@@ -248,16 +255,15 @@ body {
 }
 
 .regular-button:hover {
-  background-color: royalblue
+  background-color: royalblue;
 }
 
-
 .bottom-grey-bd {
-  border-bottom: 1px solid #CDCDCD;
+  border-bottom: 1px solid #cdcdcd;
 }
 
 .top-grey-bd {
-  border-top: 1px solid #CDCDCD;
+  border-top: 1px solid #cdcdcd;
 }
 
 /* Dynamically sized textarea */
@@ -274,9 +280,9 @@ body {
 /* Adapted from https://css-tricks.com/snippets/css/typewriter-effect */
 h1 {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.10em solid transparent; /* The typewriter cursor */
+  border-right: 0.1em solid transparent; /* The typewriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
-  letter-spacing: 0.10em; /* Adjust as needed */
+  letter-spacing: 0.1em; /* Adjust as needed */
   animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end 1;
   margin-top: 0.67em;
   margin-bottom: 0.67em;
@@ -284,9 +290,17 @@ h1 {
   /* Add gradient to font */
   /* background: linear-gradient(to right, #616161, #9bc5c3);  */
 
-  background: #abbaab;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #abbaab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #abbaab
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #abbaab
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   /* cloud */
   background-clip: text;
@@ -301,14 +315,35 @@ h1 {
 
 /* The typing effect */
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #abbaab }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #abbaab;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .pg-welcome {
+    background: #fff;
+    bottom: 0;
+    box-shadow: 0 2px 20pxrgba (5, 5, 5, 0.08);
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -318,21 +353,21 @@ h1 {
     height: 450px;
     position: relative;
   }
-  .pg-advanced-toggle, .pg-right-panel-mask {
+  .pg-advanced-toggle,
+  .pg-right-panel-mask {
     display: none;
   }
 }
 
 @media screen and (max-width: 999px) {
-
   .pg-right-content {
     left: auto;
     padding-top: 24px;
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
-    transition: -webkit-transform .3s;
-    transition: transform .3s;
-    transition: transform .3s,-webkit-transform .3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
     width: 230px;
     z-index: 2;
   }
@@ -354,13 +389,11 @@ h1 {
   }
 
   .pg-visible-mobile .pg-right-panel-mask {
-    opacity: .7;
+    opacity: 0.7;
     pointer-events: all;
   }
   .pg-right-panel-mobile-close {
     display: block;
     color: white;
   }
-  
-  
 }
