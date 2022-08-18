@@ -202,7 +202,7 @@ body {
   padding: 8px 24px;
   display: grid;
   grid-gap: 12px;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto auto auto;
   align-items: center;
 }
 
@@ -258,6 +258,10 @@ body {
 
 .regular-button:hover {
   background-color: royalblue;
+}
+
+.regular-button .info {
+  background-size: 20px 20px;
 }
 
 .bottom-grey-bd {
@@ -369,11 +373,13 @@ h1 {
   .pg-right-content {
     left: auto;
     padding: 24px 24px 0px 0px;
+    /* hide the side setting panel at the right edge of viewport */
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
     transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
     transition: transform 0.3s, -webkit-transform 0.3s;
+    /* side panel on top of mask */
     z-index: 2;
   }
 
@@ -387,6 +393,7 @@ h1 {
     z-index: 9999;
   }
 
+  /* move the side setting panel back into viewport */
   .pg-visible-mobile .pg-right-content {
     pointer-events: all;
     -webkit-transform: translateX(0);
