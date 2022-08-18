@@ -23,6 +23,7 @@ function FunWithAI() {
   const [inputText, setInputText] = useState("");
   const [displayNotice, setDisplayNotice] = useState(true);
   const [displayResponses, setDisplayResponses] = useState(false);
+  const [displayWelcomePanel, setDisplayWelcomePanel] = useState(true);
   const [displaySidePanelOverlay, setDisplaySidePanelOverlay] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultsList, setResultsList] = useState([]);
@@ -37,6 +38,7 @@ function FunWithAI() {
 
   // Dynamic classNames for components
   var pgRightFlexClassNames = displaySidePanelOverlay ? ["pg-right", "pg-visible-mobile"].join(" ") : "pg-right";
+  var pgWelcomeFlexClassNames = displayWelcomePanel ? ["pg-welcome", "body-small"].join(" ") : ["pg-welcome", "body-small", "pg-hide"].join(" ");
 
   // Helper functions
   function addResultToUI(currID, inputText, responseText) {
@@ -116,8 +118,8 @@ function FunWithAI() {
         <h1>Silver Tongue</h1>
       </div>
       <div className="pg-root">
-        <div className={["pg-welcome", "body-small"].join(" ")}>
-          <button className={"pg-right-panel-close"} >×</button>
+        <div className={pgWelcomeFlexClassNames}>
+          <button className={"pg-right-panel-close"} onClick={() => setDisplayWelcomePanel(false)}>×</button>
           <h3>To begin</h3>
           <p>
             Enter an instruction or select a preset, and watch the API respond with a completion that attempts to match the context or pattern you provided.

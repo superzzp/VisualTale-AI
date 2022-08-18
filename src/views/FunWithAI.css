@@ -185,6 +185,10 @@ body {
   margin: 0px;
 }
 
+.pg-hide {
+  display: none;
+}
+
 #main-content form {
   margin-bottom: 60px;
 }
