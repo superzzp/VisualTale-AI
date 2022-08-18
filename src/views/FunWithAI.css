@@ -409,3 +409,9 @@ h1 {
     color: white;
   }
 }
+
+@media screen and (max-width: 500px) {
+  body {
+    background: #56ccf2; /* prevent gradient clipping on mobile devices */
+  }
+}

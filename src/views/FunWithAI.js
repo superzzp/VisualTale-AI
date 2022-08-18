@@ -116,7 +116,7 @@ function FunWithAI() {
   return (
     <div className="app-root">
       <div className={["app-header", "bottom-grey-bd"].join(" ")}>
-        <h1>Silver Tongue</h1>
+        <h1>Pen Master</h1>
       </div>
       <div className="pg-root">
         <div className={pgWelcomeFlexClassNames}>
