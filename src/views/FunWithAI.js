@@ -3,6 +3,7 @@ import { LocalStorage } from '../services/LocalStorage.js';
 import TwoColsGrid from "../components/TwoColsGrid";
 import Selector from '../components/Selector.js';
 import Spinner from '../components/Spinner.js';
+import {ReactComponent as AppLogo} from '../logos/appLogo.svg';
 // import TextAnimation from "../animations/AnimatedText";
 import { inputDataModel, promptPresets } from "../utils/SelectorOptions"
 import "./FunWithAI.css";
@@ -124,10 +125,10 @@ function FunWithAI() {
           <p>
             Enter an instruction or select a preset, and watch the app respond with a completion that attempts to match the context or pattern you provided.
           </p>
-
           <p>
           You can control which model completes your request by changing the model.
           </p>
+          <AppLogo/>
           <p>
             Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. 
             Powered by OpenAI's GPT-3 models.

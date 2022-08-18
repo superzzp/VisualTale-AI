@@ -289,18 +289,20 @@ h1 {
   margin-left: 12px 0px 16px 12px;
   /* Add gradient to font */
   /* background: linear-gradient(to right, #616161, #9bc5c3);  */
-
-  background: #abbaab; /* fallback for old browsers */
+  /* #ffffff,#abbaab */
+  background: #DAE2F8; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #ffffff,
-    #abbaab
-  ); /* Chrome 10-25, Safari 5.1-6 */
+    #DAE2F8,
+    #D6A4A4
+  ); 
+  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #ffffff,
-    #abbaab
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    #DAE2F8,
+    #D6A4A4
+  ); 
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   /* cloud */
   background-clip: text;
