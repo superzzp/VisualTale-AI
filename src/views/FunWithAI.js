@@ -180,7 +180,7 @@ function FunWithAI() {
                     {/* Engine */}
                     <div>
                       <div className={["body-small", "control-label"].join(" ")}>Engine</div>
-                      <Selector onSelectorChange={updateDataModel} options={inputDataModel} width={208} default={inputDataModel[0]}></Selector>
+                      <Selector onSelectorChange={updateDataModel} options={inputDataModel} width={216} default={inputDataModel[0]}></Selector>
                     </div>
                     {/* Temperature */}
                     <div>

@@ -74,14 +74,14 @@ body {
 
 .pg-left {
   flex: 1 1 auto;
-  padding: 24px 16px;
+  padding: 24px;
 }
 
 .pg-right-content {
   bottom: 0;
   left: 0;
   overflow: auto;
-  padding-top: 24px;
+  padding: 24px 24px 0px 0px;
   position: absolute;
   right: 0;
   top: 0;
@@ -115,9 +115,6 @@ body {
   top: 5px;
 }
 
-.parameter-panel {
-  margin: 0px 16px;
-}
 
 .parameter-panel-grid {
   grid-gap: 16px;
@@ -202,7 +199,7 @@ body {
 }
 
 #pg-header {
-  padding: 8px 16px;
+  padding: 8px 24px;
   display: grid;
   grid-gap: 12px;
   grid-template-columns: 1fr auto auto;
