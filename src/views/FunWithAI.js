@@ -122,7 +122,7 @@ function FunWithAI() {
           <button className={"pg-right-panel-close"} onClick={() => setDisplayWelcomePanel(false)}>×</button>
           <h3>To begin</h3>
           <p>
-            Enter an instruction or select a preset, and watch the API respond with a completion that attempts to match the context or pattern you provided.
+            Enter an instruction or select a preset, and watch the app respond with a completion that attempts to match the context or pattern you provided.
           </p>
 
           <p>
@@ -159,7 +159,7 @@ function FunWithAI() {
             : null} */}
               {displayResponses ?
                 <div id="responses">
-                  <h2>Responses:</h2>
+                  <h4>Responses:</h4>
                   <Spinner color="white" loading={loading} size={50}></Spinner>
                   <div className="container" id="results">
                     {resultsList.slice(0).reverse().map((item) => {
