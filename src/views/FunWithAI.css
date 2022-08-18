@@ -366,13 +366,12 @@ h1 {
 @media screen and (max-width: 999px) {
   .pg-right-content {
     left: auto;
-    padding-top: 24px;
+    padding: 24px 24px 0px 0px;
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
     transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
     transition: transform 0.3s, -webkit-transform 0.3s;
-    width: 230px;
     z-index: 2;
   }
 

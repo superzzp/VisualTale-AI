@@ -130,7 +130,7 @@ function FunWithAI() {
           </p>
           <p>
             Created by Alex Zhang <cite><a href="https://github.com/superzzp/Fun-with-AI/" target="_blank">(GitHub)</a></cite>. 
-            Powered by Open AI's GPT3 models.
+            Powered by OpenAI's GPT-3 models.
           </p>
         </div>
         <div className="pg-main">
