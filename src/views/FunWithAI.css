@@ -35,6 +35,7 @@ body {
 
 .app-header {
   padding: 0px 24px;
+  
 }
 
 .app-header h1 {
@@ -99,7 +100,7 @@ body {
   z-index: 1;
 }
 
-.pg-right-panel-mobile-close {
+.pg-right-panel-close {
   background: transparent;
   border: none;
   color: #333;
@@ -284,9 +285,7 @@ h1 {
   white-space: nowrap; /* Keeps the content on a single line */
   letter-spacing: 0.1em; /* Adjust as needed */
   animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end 1;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 16px;
+  margin-left: 12px 0px 16px 12px;
   /* Add gradient to font */
   /* background: linear-gradient(to right, #616161, #9bc5c3);  */
 
@@ -336,13 +335,13 @@ h1 {
 
 @media screen and (max-width: 1100px) {
   .pg-welcome {
-    background: #fff;
     bottom: 0;
-    box-shadow: 0 2px 20pxrgba (5, 5, 5, 0.08);
+    box-shadow: 0 2px 20px rgba (5, 5, 5, 0.08);
     left: 0;
     position: absolute;
-    top: 0;
+    top: 45.676px;
     z-index: 2;
+    background-color: #2f80ed;
   }
 }
 
@@ -356,6 +355,10 @@ h1 {
   .pg-advanced-toggle,
   .pg-right-panel-mask {
     display: none;
+  }
+  .pg-welcome .pg-right-panel-close {
+    display: block;
+    color: white;
   }
 }
 
@@ -392,7 +395,7 @@ h1 {
     opacity: 0.7;
     pointer-events: all;
   }
-  .pg-right-panel-mobile-close {
+  .pg-right-panel-close {
     display: block;
     color: white;
   }

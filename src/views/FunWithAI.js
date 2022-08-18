@@ -117,6 +117,7 @@ function FunWithAI() {
       </div>
       <div className="pg-root">
         <div className={["pg-welcome", "body-small"].join(" ")}>
+          <button className={"pg-right-panel-close"} >×</button>
           <h3>To begin</h3>
           <p>
             Enter an instruction or select a preset, and watch the API respond with a completion that attempts to match the context or pattern you provided.
@@ -172,7 +173,7 @@ function FunWithAI() {
               <div className='pg-right-panel-mask'></div>
               <div className='pg-right-content'>
                 <div className='parameter-panel'>
-                  <button className={"pg-right-panel-mobile-close"} onClick={() => setDisplaySidePanelOverlay(false)}>×</button>
+                  <button className={"pg-right-panel-close"} onClick={() => setDisplaySidePanelOverlay(false)}>×</button>
                   <div className='parameter-panel-grid'>
                     {/* Engine */}
                     <div>
