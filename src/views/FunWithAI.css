@@ -31,6 +31,7 @@ body {
   font-family: Arial;
   color: white;
   height: 100%;
+  background-attachment: fixed;
 }
 
 .app-header {
@@ -58,6 +59,19 @@ body {
 
 .pg-welcome h3 {
   margin: 0px;
+}
+
+.pg-welcome-hide {
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background-color: #2f80ed;
+  -webkit-transform: translateX(-110%);
+  transform: translateX(-110%);
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  position: absolute;
+  top: 45.676px;
 }
 
 .pg-main {
@@ -409,10 +423,6 @@ h1 {
     display: block;
     color: white;
   }
+
 }
 
-@media screen and (max-width: 490px) {
-  body {
-    background: #56ccf2; /* prevent gradient clipping on mobile devices */
-  }
-}
