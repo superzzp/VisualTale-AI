@@ -1,4 +1,5 @@
 const inputDataModel = [
+    // { value: { text: 'gpt-3.5-turbo' }, label: 'GPT-3.5 Turbo (Default)' },
     { value: { text: 'text-davinci-003' }, label: 'Davinci (Default)' },
     { value: { text: 'text-curie-001' }, label: 'Curie' },
     { value: { text: 'text-babbage-001' }, label: 'Babbage' },
@@ -6,13 +7,13 @@ const inputDataModel = [
 ]
 
 const inputImageModel = [
-    { value: { text: 'none' }, label: 'Dall-E (Default)' },
-    { value: { text: 'dall-e-001' }, label: 'None (Disabled)' },
+    { value: { text: 'dall-e-001' }, label: 'Dall-E (Default)' },
+    { value: { text: 'none' }, label: 'None (Disable)' },
 ]
 
 const promptPresets = [
-    { value: { text: 'Write a science fiction where a famous chef opens a restaurant in space.', param: { temp: 0.7, maxLen: 512, topP: 1, freq: 0.4, pres: 0.25 } }, label: 'Write a story' },
-    { value: { text: 'Write a three minutes speech about climate change.', param: { temp: 0.7, maxLen: 390, topP: 1, freq: 0.7, pres: 0 } }, label: 'Write a speech' },
+    { value: { text: 'Write a science fiction where a famous chef opens a restaurant in space.', param: { temp: 0.7, maxLen: 512, topP: 1, freq: 0.4, pres: 0.3 } }, label: 'Write a story' },
+    { value: { text: 'Write a three minutes speech about climate change.', param: { temp: 0.7, maxLen: 390, topP: 1, freq: 0.7, pres: 0.3 } }, label: 'Write a speech' },
     { value: { text: 'Write a poem about Canada.', param: { temp: 0.7, maxLen: 256, topP: 1, freq: 0, pres: 0 } }, label: 'Write a poem' },
     { value: { text: 'Summarize this for a second-grade student: \n\nJupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass one-thousandth that of the Sun, but two-and-a-half times that of all the other planets in the Solar System combined. Jupiter is one of the brightest objects visible to the naked eye in the night sky, and has been known to ancient civilizations since before recorded history. It is named after the Roman god Jupiter.[19] When viewed from Earth, Jupiter can be bright enough for its reflected light to cast visible shadows,[20] and is on average the third-brightest natural object in the night sky after the Moon and Venus.', param: { temp: 0.7, maxLen: 64, topP: 1, freq: 0, pres: 0 } }, label: 'Summarize for a 2nd grader' },
     { value: { text: 'Translate this into 1. French, 2. Spanish and 3. Japanese: \n\nWhat rooms do you have available?', param: { temp: 0.3, maxLen: 100, topP: 1, freq: 0, pres: 0 } }, label: 'English to other languages' },

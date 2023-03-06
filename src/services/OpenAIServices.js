@@ -2,8 +2,8 @@
 function textCompletion(inputText, selectedMaxResTokenLength, selectedTemperature, selectedTopP, selectedFreqPenalty, selectedPresPenalty, selectedDataModel) {
     // Proxy server that handle api calls to OpenAI, to protect API credentials
     // Check https://github.com/superzzp/OpenAI-Services for server side code repo
-    // const url = "https://openai-text-generation.herokuapp.com/openai/completions";
-    const local_url = "http://localhost:4000/openai/completions"
+    // const url = "https://openai-text-generation.herokuapp.com/openai/completions/3.0"";
+    const local_url = "http://localhost:4000/openai/completions/3.0"
     return fetch(local_url, {
         method: "POST",
         mode: "cors",

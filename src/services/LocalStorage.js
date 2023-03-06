@@ -1,5 +1,5 @@
 // Save a prompt local storage
-function saveResultToLocalStorage(currID, inputText, responseText) {
+function saveResultToLocalStorage(currID, inputText, fullTextResponse, textSegmentsWithImageURLs) {
     if (typeof (Storage) !== "undefined") {
         // If browser supports local storage
         // Loading
@@ -8,7 +8,8 @@ function saveResultToLocalStorage(currID, inputText, responseText) {
         var result = {
             id: currID,
             prompt: inputText,
-            response: responseText
+            fullTextResponse: fullTextResponse,
+            textSegmentsWithImageURLs: textSegmentsWithImageURLs
         };
         results.push(result);
         console.log("Added result for" + result.prompt);
