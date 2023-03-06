@@ -166,7 +166,7 @@ function FunWithAI() {
   return (
     <div className="app-root">
       <div className={["app-header", "bottom-grey-bd"].join(" ")}>
-        <h1>StoryTeller</h1>
+        <h1>VisualTale AI</h1>
       </div>
 
       
