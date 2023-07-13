@@ -1,10 +1,16 @@
 # VisualTale-AI
 
+## Video Demo
+
 https://github.com/superzzp/VisualTale-AI/assets/37462732/ce866930-78db-49b0-bb11-55a9cc955d5b
 
 Click on above for a video demo
 
+## Example Input and Output
+
 <img width="1107" alt="VisualTale AI Example" src="https://github.com/superzzp/VisualTale-AI/assets/37462732/39bb608d-7aba-43dc-9f31-e94c70b4e715">
+
+An example user input, with the GPT output story texts, segmented into parts. Each part also comes with an image description, which are then fed to the DALL-E for generating the image for the story. 
 
 # Getting Started with Create React App
 
