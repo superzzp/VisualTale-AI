@@ -1,3 +1,11 @@
+# VisualTale-AI
+
+https://github.com/superzzp/VisualTale-AI/assets/37462732/ce866930-78db-49b0-bb11-55a9cc955d5b
+
+Click on above for a video demo
+
+<img width="1107" alt="VisualTale AI Example" src="https://github.com/superzzp/VisualTale-AI/assets/37462732/39bb608d-7aba-43dc-9f31-e94c70b4e715">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
